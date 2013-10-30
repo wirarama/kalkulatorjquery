@@ -3,23 +3,34 @@
 		<title>test</title>
 		<script src="jquery.min.js"></script>
 		<script>
-		$(function() {
-			$(window).keypress(function(e) {
-				
+		$(function(){
+			$("#a").focus();
+			$(window).keydown(function(e) {
 				var a = parseInt($('#a').val(), 10);
 				var b = parseInt($('#b').val(), 10);
 				var key = e.which;
+				var hasil = 0;
 				if(key==107){
-					var hasil = a+b;
+					hasil = a+b;
 				}else if(key==109){
-					var hasil = a-b;
+					hasil = a-b;
 				}else if(key==106){
-					var hasil = a*b;
+					hasil = a*b;
 				}else if(key==111){
-					var hasil = a/b;
+					hasil = a/b;
 				}
-				$("#hasil").html(hasil+e);
-				alert("maho bangsat");
+				$("#hasil").html(hasil);
+			});
+			$("#a,#b").keydown(function(e) {
+				if ( $.inArray(e.keyCode,[46,8,9,27,13,190]) !== -1 ||
+				    (e.keyCode == 65 && e.ctrlKey === true) || 
+				    (e.keyCode >= 35 && e.keyCode <= 39)) {
+					 return;
+				}else {
+				    if (e.shiftKey || (e.keyCode < 48 || e.keyCode > 57) && (e.keyCode < 96 || e.keyCode > 105 )) {
+					e.preDefault(); 
+				    }   
+				}
 			});
 		});
 		</script>
