@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title>test</title>
+		<script src="jquery.min.js"></script>
+		<script>
+		$(function() {
+			$(window).keypress(function(e) {
+				
+				var a = parseInt($('#a').val(), 10);
+				var b = parseInt($('#b').val(), 10);
+				var key = e.which;
+				if(key==107){
+					var hasil = a+b;
+				}else if(key==109){
+					var hasil = a-b;
+				}else if(key==106){
+					var hasil = a*b;
+				}else if(key==111){
+					var hasil = a/b;
+				}
+				$("#hasil").html(hasil+e);
+				alert("maho bangsat");
+			});
+		});
+		</script>
+	</head>
+	<body>
+		A : <input type="text" id="a"><br>
+		B : <input type="text" id="b"><br>
+		<div>tekan + - * /</div>
+		<div>hasilnya : <span id="hasil"></span></div>
+	</body>
+</html>
